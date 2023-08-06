@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <title>We are the Champions</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div id="top-level-container">
+            <header>
+                <img id="header-img" src="./assets/freddie.png" alt="Freddie Mercury silhouette">
+                <h1>We are the Champions</h1>
+            </header>
+            <main>
+                <section id="form-section">
+                    <form id="endorsement-form">
+                        <textarea id="endorsement-text" class="form-input" minlength="1" maxlength="200" placeholder="Write your endorsement here (max 200 char)..." required></textarea>
+                        <div id="input-container">
+                            <input id="from-input" minlength="1" maxlength="25" class="form-input input-element" placeholder="From" required>
+                            <input id="to-input" minlength="1" maxlength="25" class="form-input input-element" placeholder="To" required>
+                        </div>
+                        <button id="publish-btn" type="submit">Publish</button>
+                    </form>
+                </section>
+                <section id="endorsements-section">
+                    <h2 >- Endorsements -</h2>              
+                    <div id="endorsements"></div>
+                </section>
+            </main>
+        </div>
+        <script src="https://kit.fontawesome.com/7499fd1a11.js" crossorigin="anonymous"></script>
+        <script src="./js/index.js" type="module"></script>
+    </body>
+</html>
