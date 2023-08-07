@@ -27,7 +27,7 @@ get(endorsementsRef).then((snapshot) => {
     if (snapshot.exists() && snapshot.hasChildren()) {
         // Clear container of articles
         endorsementsContainerEl.innerHTML = '';
-        // Render endorsement articles
+        // Get snapshot and convert to an array
         let snapshotArray = Object.entries(snapshot.val());
         
         // Sort newest to oldest
@@ -57,8 +57,10 @@ onChildChanged(endorsementsRef, (snapshot) => {
     const changedChildData = snapshot.val();
     const changedChildKey = snapshot.key;
 
+    // Create unique id for each endorsement
+    const uniqueId = `${changedChildData.timestamp}`.slice(0, 5) + changedChildKey.slice(-5);
     // Replace previous article element with updated article element
-    const oldArticle = document.querySelector(`[data-id="${changedChildKey.slice(-5)}"]`);
+    const oldArticle = document.querySelector(`[data-id="${uniqueId}"]`);
     const parentEl = oldArticle.parentElement;
     const newArticle = renderEndorsement([changedChildKey, changedChildData]);
     parentEl.replaceChild(newArticle, oldArticle);
@@ -105,8 +107,10 @@ function renderEndorsement(item) {
     h2From.textContent = `From ${dbObject.sender}`;
     span.textContent = dbObject.likes;
     
+    // Create unique ID
+    const uniqueId = `${dbObject.timestamp}`.slice(0, 5) + id.slice(-5);
     // Set attributes
-    article.setAttribute('data-id', id.slice(-5));
+    article.setAttribute('data-id', `${uniqueId}`);
     h2To.classList.add('to-heading');
     pText.classList.add('text-paragraph');
     h2From.classList.add('from-heading');
